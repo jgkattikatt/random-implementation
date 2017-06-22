@@ -2,7 +2,7 @@
 #jgkattikatt@gmail.com
 
 string = "Hello world, how are you ?"
-pattern = "how"
+pattern = "howz"
 len_pattern = len(pattern) - 1
 
 def check_pattern():
@@ -13,13 +13,16 @@ def check_pattern():
     for char in string:
         if first_char_match:
             if char == pattern[current_pattern_index]:
-                if first_char_match == len_pattern:
+                if current_pattern_index == len_pattern:
                     print 'Pattern Matched'
                     result = True
-                    first_char_match = 0
+                    current_pattern_index = 0
                     first_char_match = False
                 else: 
-                    first_char_match += 1
+                    current_pattern_index += 1
+            else:
+                current_pattern_index = 0
+                first_char_match = False
         elif char == pattern[current_pattern_index]:
             first_char_match = True
             current_pattern_index += 1
